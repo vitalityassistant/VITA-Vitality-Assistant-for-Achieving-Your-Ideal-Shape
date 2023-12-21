@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VITA Company</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZwT" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header class="navbar sticky-top navbar-expand-lg navbar-dark main-nav">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='img/logo.png') }}" class="main-logo px-2"><i><font color=black><i>Vitality Assistant</i></font></i></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto py-1">
+              <a class="nav-link px-4" aria-current="page" href="{{ url_for('home') }}">Home</a>
+              <a class="nav-link active px-4" href="{{ url_for('about') }}">About Us</a>
+              <a class="nav-link px-4" href="{{ url_for('faq') }}">FAQ</a>
+              <a class="nav-link px-4" href="{{ url_for('product') }}">Product</a>
+              <a class="nav-link px-4" href="{{ url_for('cart') }}">Cart</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section id="about" class="main-about">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-6 px-2 py-2">
+                    <br>
+                    <h2><font color=white><b>Tujuan Vitality Assistant</b></font></h2>
+                    <br>
+                    <h4><font color=white>VITA (Vitality Assistant for Achieving Your Ideal Shape) hadir dengan tujuan untuk memberikan fasilitas yang dapat memprediksi kategori BMI pengguna berdasarkan nilai usia, berat badan serta tinggi badan seseorang. VITA akan memberikan arahan atau langkah lebih lanjut mengenai rekomendasi makanan maupun program kebugaran yang sesuai dengan hasil prediksi pengguna. Selain itu, VITA juga menyediakan fitur pilihan produk makanan sehat dan alat olahraga yang dapat dipesan oleh para pengguna.</font></h4>
+                </div>
+                <div class="col-lg-6 text-center py-3">
+                  <br>
+                  <img src="{{ url_for('static', filename='img/about.png') }}" class="px-4 py-4 w-100">
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section id="about" class="main-about">
+        <div class="container py-3">
+          <h2 class="text-center"><font color=white><b>Anggota Kelompok</b></font></h2>
+          <br>
+          <br>
+          <div class="row">
+              {% for founder in founders %}
+              <div class="col-lg-3 mb-3">
+                  <div class="card mb-4 text-center">
+                    <img src="{{ url_for('static', filename=founder.photo) }}" class="card-img-top-center founder-image" alt="{{ founder.name }}">
+                      <div class="card-body">
+                          <h5 class="card-title"><b>{{ founder.name }}</b></h5>
+                          <p class="card-text">{{ founder.nim }} | {{ founder.prodi }}</p>
+                          <p class="card-text">{{ founder.university }}</p>
+                          <p class="card-text"><b>{{ founder.jobdes }}</b></p>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+      </section>
+
+      <footer>
+        <div class="main-footer-menu main-putih py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-4 mb-3"> 
+                <li type="none"><h4>Layanan :</h4></li>
+                  <li type="none">Syarat dan Kebijakan</li>
+                  <li type="none">Kebijakan Privasi</li>
+                  <li type="none">Frequently Asked Questions</li>
+                  <li type="none">Calculator BMI</li>
+              </div>
+
+              <div class="col-lg-4 mb-3"> 
+                <li type="none"><h4>Hubungi Kami :</h4></li>
+                  <li type="none">Email      : vitalitty.1@gmail.com</li>
+                  <li type="none">Instragram : @vitality_assistant</li>
+                  <li type="none">Telegram   : @vitality</li>
+              </div>
+
+              <div class="col-lg-4 mb-3"> 
+                <li type="none"><h4>About Us:</h4></li>
+                  <li type="none">Memberikan fasilitas yang dapat memprediksi kategori BMI pengguna berdasarkan usia, berat badan serta tinggi badan seseorang.</li>
+              </div>
+              
+              <div class="container text-center py-3">
+                <p>&copy; 2023 VITA Company <br></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+</body>
+</html>

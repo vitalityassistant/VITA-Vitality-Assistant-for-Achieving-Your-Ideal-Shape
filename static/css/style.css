@@ -1,0 +1,106 @@
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    font-style: normal;
+}
+
+/*Warna Untuk bg Header*/
+.main-nav {
+    background-color: #ffb703;
+}
+
+/*Warna Untuk Tulisan Header*/
+.main-nav .navbar-nav a.nav-link {
+    color: #FFF;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/*Warna Untuk Tulisan Header Kalau Di Arahkan Jadi Hitam*/
+.main-nav .navbar-nav .nav-link.active, .main-nav .navbar-nav .nav-link:hover{
+    color: #000000;
+}
+
+/*Warna Untuk Warna Background dan Tulisan*/
+.main-hijau {
+    background-color: #287536;
+    /*background-color: #285430;*/
+    color: #FFF;
+}
+
+.main-putih {
+    background-color: #000000;
+    color: #FFF;
+}
+
+/*Warna Untuk Tulisan Kepanjangan Vita*/
+.main-hijau h6 span {
+    color: #ffb703;
+    font-style: italic;
+}
+
+/*Warna Untuk Bg Tombol*/
+.btn-warning {
+    background-color: #ffb703;
+}
+
+.main-about{
+    background-color: #50ab61;
+    text-align: justify;
+}
+.founder-image {
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.main-product{
+    background-color: #50ab61;
+    color: #000000;
+    font-weight: 300;
+}
+
+.main-atas-judul{
+    color: #4f772d;
+    font-size: 30px;
+    font-weight: 300;
+    text-decoration: underline;
+}
+
+/*Style untuk dibawah home bagian kolaborasi*/
+#main-kolaborasi img {
+    max-height: 50px;
+    max-width: 150px;
+}
+#main-kolaborasi a{
+    display: inline-block;
+    word-spacing: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: #4f772d;
+    padding: 20px;
+    border-radius: 10px;
+    color: #FFF;
+}
+
+/*Style untuk Logo*/
+.navbar img,main-logo {
+    max-width: 50px;
+}
+
+/*Style untuk Faq*/
+.main-faq{
+    background-color: #50ab61;
+    font-style: normal
+}
+
+.main-hasil{
+    background-color: #4f772d;
+    font-style: normal;
+}

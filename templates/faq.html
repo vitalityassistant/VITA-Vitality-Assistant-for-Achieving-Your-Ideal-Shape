@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VITA Company</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZwT" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+      body{
+       font-family:Arial, Helvetica, sans-serif;
+       font-style: normal;
+      }
+      .panel-body {
+          display: none;
+      }
+
+      .panel-title::before {
+          content: '\002B'; /* Unicode for plus sign */
+          margin-right: 10px;
+        }
+      .panel-title.active::before {
+          content: '\2212'; /* Unicode for minus sign */
+      }
+    </style>
+    <script>
+      $(document).ready(function(){
+          $('.panel-title').click(function(){
+              $(this).toggleClass('active').next('.panel-body').slideToggle();
+          });
+      });
+  </script>
+
+</head>
+<body>
+    <header class="navbar sticky-top navbar-expand-lg navbar-dark main-nav">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='img/logo.png') }}" class="main-logo px-2"><font color=black><i>Vitality Assistant</i></font></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto py-1">
+              <a class="nav-link px-4" aria-current="page" href="{{ url_for('home') }}">Home</a>
+              <a class="nav-link px-4" href="{{ url_for('about') }}">About Us</a>
+              <a class="nav-link active px-4" href="{{ url_for('faq') }}">FAQ</a>
+              <a class="nav-link px-4" href="{{ url_for('product') }}">Product</a>
+              <a class="nav-link px-4" href="{{ url_for('cart') }}">Cart</a>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+      <section id="faq" class="main-faq">
+        <h3 class="text-center py-3"><font color=white><b>Pertanyaan Seputar VITA</b></font></h3>
+        <div class="container py-3">
+          <div class="row w-80">
+              {% for faq in faq_data %}
+              <div class="card mb-3">
+                  <div class="panel-title">
+                      <b>{{ faq["question"] }}</b>
+                  </div>
+                  <div class="panel-body">
+                      {{ faq["answer"] }}
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+  </section>
+
+    <footer>
+        <div class="main-footer-menu main-putih py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-4 mb-3"> 
+                <li type="none"><h4>Layanan :</h4></li>
+                  <li type="none">Syarat dan Kebijakan</li>
+                  <li type="none">Kebijakan Privasi</li>
+                  <li type="none">Frequently Asked Questions</li>
+                  <li type="none">Calculator BMI</li>
+              </div>
+
+              <div class="col-lg-4 mb-3"> 
+                <li type="none"><h4>Hubungi Kami :</h4></li>
+                  <li type="none">Email      : vitalitty.1@gmail.com</li>
+                  <li type="none">Instragram : @vitality_assistant</li>
+                  <li type="none">Telegram   : @vitality</li>
+              </div>
+
+              <div class="col-lg-4 mb-3"> 
+                <li type="none"><h4>About Us:</h4></li>
+                  <li type="none">Memberikan fasilitas yang dapat memprediksi kategori BMI pengguna berdasarkan usia, berat badan serta tinggi badan seseorang.</li>
+              </div>
+              
+              <div class="container text-center py-3">
+                <p>&copy; 2023 VITA Company <br></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+   
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VITA Company</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZwT" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <style>
+        body {
+            background-color: #09b369; 
+        }
+        .card-body{
+            text-align: justify;
+        }
+        .text-center {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar sticky-top navbar-expand-lg navbar-dark main-nav">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='img/logo.png') }}" class="main-logo px-2"><i><font color=black>Vitality Assistant</font></i></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto py-1">
+              <a class="nav-link px-4" aria-current="page" href="{{ url_for('home') }}">Home</a>
+              <a class="nav-link px-4" href="{{ url_for('about') }}">About Us</a>
+              <a class="nav-link px-4" href="{{ url_for('faq') }}">FAQ</a>
+              <a class="nav-link active px-4" href="{{ url_for('product') }}">Product</a>
+              <a class="nav-link px-4" href="{{ url_for('cart') }}">Cart</a>
+            </div>
+          </div>
+        </div>
+    </header>
+  
+        <div class="container mt-5">
+          <div class="row row-cols-4">
+              {% for product in products %}
+                  <div class="col-lg-3 mb-3">
+                      <div class="card" style="width: 16rem;">
+                            <img src="{{ url_for('static', filename=product['image']) }}" class="card-img-top" alt="card-img-top">
+                            <div class="card-body">
+                                <h6 class="card-title"><b>{{ product['name'] }}</b></h6>
+                                <p class="card-text">Category : {{ product['category'] }}</p>
+                                <p class="card-text">Shop : {{ product['description'] }}</p>
+                                <p class="card-text"><b>Rp. {{ product['harga'] }}</b></p>
+                            <div class="text-center">
+                                <a href="{{ url_for('add_to_cart', category='sport', product_id=loop.index) }}" class="btn btn-warning btn-add-to-cart"><b>Add to Cart</b></a>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              {% endfor %}
+          </div>
+      </div>
+
+      <div class="container py-5">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <a href="{{ url_for('product') }}" class="btn btn-warning"><b>Back</b></a>
+            </div>
+            <div class="col-md-6 text-center">
+                <a href="{{ url_for('cart') }}" class="btn btn-warning"><b>View Cart</b></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+</body>
+</html>    

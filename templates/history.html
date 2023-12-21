@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VITA Company</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZwT" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <style>
+      body {
+          /*background-color:#4db860;*/
+          background-color: rgb(183, 222, 105);
+      }
+      .text-justify {
+        text-align: justify;
+      } 
+    </style>
+  </head>
+
+<body>
+  <header class="navbar sticky-top navbar-expand-lg navbar-dark main-nav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='img/logo.png') }}" class="main-logo px-2"><i><font color=black>Vitality Assistant</font></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ms-auto py-1">
+          <a class="nav-link active px-4" aria-current="page" href="{{ url_for('home') }}">Home</a>
+          <a class="nav-link px-4" href="{{ url_for('about') }}">About Us</a>
+          <a class="nav-link px-4" href="{{ url_for('faq') }}">FAQ</a>
+          <a class="nav-link px-4" href="{{ url_for('product') }}">Product</a>
+          <a class="nav-link px-4" href="{{ url_for('cart') }}">Cart</a>
+        </div>
+      </div>
+    </div>
+</header>
+
+  <div class="container">
+    <h1 class="text-center py-3"><b> BMI RESULT</b></h1>
+      <div id = "hasil_prediksi" align="center"> 
+        <h4 class="text-center text-danger"><b>INI ADALAH KATEGORI TUBUHMU!</b></h4>
+        <br>
+        <center>
+          <button class="btn btn-lg btn-success">{{ prediction }}</button>
+        </center>
+          <br>
+          <h5 class="text-center">Berikut adalah rekomendasi yang kami berikan untuk kesehatan, kebugaran dan keidealan tubuhmu.</h5>
+      
+      </div><section id="hasil" class="main-hasil">
+        <div class="container py-3" align = "center">
+            <div class="row w-50">
+                <div class="card">
+                    <div class="panel-title">
+                        <b>Jumlah Kalori Harian</b>
+                    </div>
+                    <div class="panel-body">
+                        {{ advice1 }}
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <div class="container py-2" align = "center">
+          <div class="row w-50">
+              <div class="card">
+                  <div class="panel-title">
+                      <b>Porsi dan Frekuensi Makan</b>
+                  </div>
+                  <div class="panel-body">
+                      {{ advice2 }}
+                  </div>
+              </div>  
+          </div>
+      </div>
+      <div class="container py-2" align = "center">
+        <div class="row w-50">
+            <div class="card">
+                <div class="panel-title">
+                    <b>Aktivitas Fisik Harian</b>
+                </div>
+                <div class="panel-body">
+                    {{ advice3 }}
+                </div>
+            </div>  
+        </div>
+    </div>
+    <div class="container py-2" align = "center">
+      <div class="row w-50">
+          <div class="card">
+              <div class="panel-title">
+                  <b>Kebutuhan Air Minum</b>
+              </div>
+              <div class="panel-body">
+                  {{ advice4 }}
+              </div>
+          </div>  
+        </div>
+      </div>
+    </section></div>
+  </div>
+  </div>
+  <div class="container py-5">
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <a href="{{ url_for('home') }}" class="btn btn-warning"><b>Back</b></a>
+        </div>
+        <div class="col-md-6 text-center">
+            <a href="{{ url_for('product') }}" class="btn btn-warning"><b>View Products</b></a>
+        </div>
+    </div>
+</div>
+  
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+</body>
+</html>
